@@ -1,15 +1,21 @@
 const { httpError } = require("../helpers/hanledeError");
 const userModel = require("../models/user");
+const resposeApi = require("../helpers/responseApi");
 
 
 
 // list all users
 
 const getItems = async (req, res) => {
+  const  estructureApi = new resposeApi()
   try {
     const listAll = await userModel.find();
+if(listAll.length > 0) { 
+  estructureApi.toResponse(listAll)
 
-    res.send({ data: listAll });
+}else{
+  estructureApi.setState('message : no existe ningun producto ')
+}
   } catch (error) {
     httpError(res, error);
   }
@@ -28,8 +34,8 @@ const getItem = async (req, res) => {
 //  create a user 
 const createItems = async (req, res) => {
   try {
-    const { name, age, email } = req.body;
-    const resDetail = await userModel.create({ name, age, email });
+    const { name, password, email } = req.body;
+    const resDetail = await userModel.create({ name, password, email });
 
     res.send({ data: resDetail });
   } catch (error) {

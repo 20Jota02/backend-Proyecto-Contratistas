@@ -1,20 +1,35 @@
 const moongose = require('mongoose');
 
+
 const userSchema = new moongose.Schema({
-    name:{
-        type: String
-    },
-    age:{
-        type: String
-    },
-  
-    email:{
-        type: String
+
+
+    name: {
+        type: String,
+        unique: true,
     },
 
-},{
-    timestamps:true,
-    versionKey:false
+    email: {
+        type: String,
+        unique: true,
+
+    },
+
+    password: {
+        type: String,
+        required: true,
+    },
+
+    // roles:{
+
+    // }
+
+}, {
+    timestamps: true,
+    versionKey: false
 })
+
+
+
 
 module.exports = moongose.model('User', userSchema);

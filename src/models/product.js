@@ -1,20 +1,20 @@
 const moongose = require('mongoose');
 
 const productSchema = new moongose.Schema({
-    name:{
+    name: {
         type: String
     },
-    precio:{
-        type: String
-    },
-  
-    descripcion:{
+    precio: {
         type: String
     },
 
-},{
-    timestamps:true,
-    versionKey:false
+    descripcion: {
+        type: String
+    },
+
+}, {
+    timestamps: true,
+    versionKey: false
 })
 
-module.exports = moongose.model('Product',productSchema);
+module.exports = moongose.model('Product', productSchema);

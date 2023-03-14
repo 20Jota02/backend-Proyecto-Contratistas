@@ -1,6 +1,3 @@
-
-
-
 class responseApi{
 
 
@@ -13,17 +10,17 @@ class responseApi{
 
  constructor(){
  }
-    setEstado = (codigo,estado,mensaje)=>{
+    setState = (code, status, message)=>{
 
-        this.structure.status  = estado;
-        this.structure.code    = codigo;
-        this.structure.message = mensaje;
+        this.structure.code    = code;
+        this.structure.status  = status;
+        this.structure.message = message;
     }
 
 
-    setResultado = (ressult)=>{
+    setResult = (results)=>{
 
-        this.structure.results = ressult;
+        this.structure.results = results;
     }
 
 
